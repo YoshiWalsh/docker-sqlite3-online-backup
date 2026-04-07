@@ -2,9 +2,13 @@
 
 FROM keinos/sqlite3
 
+USER root
+
 COPY scripts/*.sh /app/
 
 RUN chmod +x /app/*.sh \
   && apk add --no-cache bash sqlite supercronic tzdata
+
+USER sqlite
 
 ENTRYPOINT ["/app/entrypoint.sh"]

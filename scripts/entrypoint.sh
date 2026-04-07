@@ -8,7 +8,7 @@ else
     ln -sf "/usr/share/zoneinfo/UTC" /etc/timezone
 fi
 
-echo "${CRON} bash /app/backup.sh" > /app/crontab
+echo "${CRON} bash /app/backup.sh" > /tmp/crontab
 
 # foreground run crond
-exec /usr/bin/supercronic -passthrough-logs -quiet "/app/crontab"
+exec /usr/bin/supercronic -passthrough-logs -quiet "/tmp/crontab"
