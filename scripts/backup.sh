@@ -16,7 +16,8 @@ else
     echo "Backing up database using Online Backup API"
     sqlite3 ${LIVE_DB} ".backup '/tmp/backup.db'"
 fi
-rm /tmp/*.db
 
 cp /tmp/backup.db ${BACKUP_DB}
+rm /tmp/*.db
+
 echo "Backup complete"
